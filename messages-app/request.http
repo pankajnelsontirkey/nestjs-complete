@@ -1,0 +1,13 @@
+### List all messages
+GET  http://localhost:3000/messages
+
+### Create a message
+POST http://localhost:3000/messages
+Content-Type: application/json
+
+{
+  "content": "Dependency Injection is complex but cool!"
+}
+
+### Get a message by its id
+GET http://localhost:3000/messages/187

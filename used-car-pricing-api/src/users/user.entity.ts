@@ -1,3 +1,4 @@
+import { IsEmail } from 'class-validator';
 import {
   AfterInsert,
   AfterRemove,
@@ -13,6 +14,7 @@ export class User {
   id: number;
 
   @Column()
+  @IsEmail()
   email: string;
 
   @Column()

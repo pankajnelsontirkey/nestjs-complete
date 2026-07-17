@@ -13,6 +13,8 @@ export class ReportDto {
   model!: string;
   @Expose()
   year!: number;
+  @Expose()
+  mileage!: number;
 
   @Expose()
   lng!: number;
@@ -20,7 +22,7 @@ export class ReportDto {
   lat!: number;
 
   @Expose()
-  mileage!: number;
+  approved!: boolean;
 
   @Transform(({ obj }) => obj.user.id)
   @Expose()

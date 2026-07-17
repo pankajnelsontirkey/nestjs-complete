@@ -16,9 +16,9 @@ export class ReportsService {
     return this.repo.save(report);
   }
 
-  async changeApproval(id: string, approved: boolean) {
+  async changeApproval(id: number, approved: boolean) {
     const report = await this.repo.findOne({
-      where: { id: parseInt(id) },
+      where: { id },
       relations: { user: true },
     });
 

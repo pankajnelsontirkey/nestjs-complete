@@ -16,22 +16,23 @@ import { CurrentUser } from '../users/decorators/current-user.decorator';
 import { User } from '../users/user.entity';
 import { ApproveReportDto } from './dtos/approve-report.dto';
 import { CreateReportDto } from './dtos/create-report.dto';
+import { GetEstimateDto } from './dtos/get-estimate.dto';
 import { ReportDto } from './dtos/report.dto';
 import { ReportsService } from './reports.service';
-import { GetEstimateDto } from './dtos/get-estimate.dto';
 
 @Controller('reports')
-@Serialize(ReportDto)
 export class ReportsController {
   constructor(private reportsService: ReportsService) {}
 
   @Post('')
   @UseGuards(AuthGuard)
+  @Serialize(ReportDto)
   createReport(@Body() body: CreateReportDto, @CurrentUser() user: User) {
     return this.reportsService.create(body, user);
   }
 
   @Patch('/:id')
+  @Serialize(ReportDto)
   @UseGuards(AdminGuard)
   approveReport(@Param('id') id: string, @Body() body: ApproveReportDto) {
     return this.reportsService.changeApproval(parseInt(id), body.approved);
@@ -39,6 +40,6 @@ export class ReportsController {
 
   @Get('')
   getEstimate(@Query() query: GetEstimateDto) {
-    console.log(query);
+    return this.reportsService.createEstimate(query);
   }
 }

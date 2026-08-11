@@ -33,9 +33,7 @@ import { UsersModule } from './users/users.module';
     //     entities: [User, Report],
     //   }),
     // }),
-    TypeOrmModule.forRootAsync({
-      useClass: TypeOrmConfigService,
-    }),
+    TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
     UsersModule,
     ReportsModule,
   ],

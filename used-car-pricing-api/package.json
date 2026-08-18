@@ -32,6 +32,7 @@
     "class-validator": "^0.15.1",
     "cookie-session": "^2.1.1",
     "cross-env": "^10.1.0",
+    "pg": "^8.23.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "typeorm": "^1.1.0"
@@ -78,5 +79,10 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "allowScripts": {
+    "@nestjs/core@11.1.21": true,
+    "unrs-resolver@1.12.2": true,
+    "better-sqlite3@12.10.0": true
   }
 }
